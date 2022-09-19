@@ -1,0 +1,2 @@
+class ModuleSection < ApplicationRecord
+end

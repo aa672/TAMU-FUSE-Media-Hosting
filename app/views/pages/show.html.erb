@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Page:</strong>
+  <%= @page.page_id %>
+</p>
+
+<p>
+  <strong>Module:</strong>
+  <%= @page.module_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @page.content_id %>
+</p>
+
+<p>
+  <strong>Page name:</strong>
+  <%= @page.page_name %>
+</p>
+
+<p>
+  <strong>Page description:</strong>
+  <%= @page.page_description %>
+</p>
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>

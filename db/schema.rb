@@ -10,13 +10,71 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_09_18_200543) do
+=======
+ActiveRecord::Schema.define(version: 2022_09_19_215002) do
+>>>>>>> 278c9369d936dac5f72f09f6f1f9c906d65f7b2f
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "videos", force: :cascade do |t|
     t.string "title"
+=======
+  create_table "content_tags", force: :cascade do |t|
+    t.integer "contentTag_id"
+    t.integer "tag_id"
+    t.integer "content_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "contents", force: :cascade do |t|
+    t.integer "content_id"
+    t.string "content_type"
+    t.string "content_storage_link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "module_sections", force: :cascade do |t|
+    t.integer "module_id"
+    t.string "module_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "modules", force: :cascade do |t|
+    t.integer "module_id"
+    t.string "module_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.integer "page_id"
+    t.integer "module_id"
+    t.integer "content_id"
+    t.string "page_name"
+    t.string "page_description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "passwords", force: :cascade do |t|
+    t.integer "password_id"
+    t.string "password_name"
+    t.string "password"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.integer "tag_id"
+    t.string "tag_name"
+>>>>>>> 278c9369d936dac5f72f09f6f1f9c906d65f7b2f
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
