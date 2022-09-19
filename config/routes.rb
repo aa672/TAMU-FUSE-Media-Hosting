@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :module_sections
   resources :passwords
   resources :content_tags
   resources :tags
