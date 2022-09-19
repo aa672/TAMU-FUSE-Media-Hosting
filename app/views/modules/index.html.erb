@@ -11,17 +11,7 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @modules.each do |module| %>
-      <tr>
-        <td><%= module.module_id %></td>
-        <td><%= module.module_name %></td>
-        <td><%= link_to 'Show', module %></td>
-        <td><%= link_to 'Edit', edit_module_path(module) %></td>
-        <td><%= link_to 'Destroy', module, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  
 </table>
 
 <br>
