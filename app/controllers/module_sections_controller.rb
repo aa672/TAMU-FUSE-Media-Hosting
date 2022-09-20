@@ -8,6 +8,7 @@ class ModuleSectionsController < ApplicationController
 
   # GET /module_sections/1 or /module_sections/1.json
   def show
+    @pages = Page.all
   end
 
   # GET /module_sections/new
