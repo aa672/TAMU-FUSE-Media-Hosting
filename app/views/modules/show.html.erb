@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Module:</strong>
+  <%= @module.module_id %>
+</p>
+
+<p>
+  <strong>Module name:</strong>
+  <%= @module.module_name %>
+</p>
+
+<%= link_to 'Edit', edit_module_path(@module) %> |
+<%= link_to 'Back', modules_path %>
