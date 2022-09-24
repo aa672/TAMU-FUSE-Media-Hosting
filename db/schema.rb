@@ -10,19 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2022_09_18_200543) do
-=======
 ActiveRecord::Schema.define(version: 2022_09_19_215002) do
->>>>>>> 278c9369d936dac5f72f09f6f1f9c906d65f7b2f
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-  create_table "videos", force: :cascade do |t|
-    t.string "title"
-=======
   create_table "content_tags", force: :cascade do |t|
     t.integer "contentTag_id"
     t.integer "tag_id"
@@ -74,7 +66,12 @@ ActiveRecord::Schema.define(version: 2022_09_19_215002) do
   create_table "tags", force: :cascade do |t|
     t.integer "tag_id"
     t.string "tag_name"
->>>>>>> 278c9369d936dac5f72f09f6f1f9c906d65f7b2f
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
