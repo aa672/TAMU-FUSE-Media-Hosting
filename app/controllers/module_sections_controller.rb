@@ -4,10 +4,12 @@ class ModuleSectionsController < ApplicationController
   # GET /module_sections or /module_sections.json
   def index
     @module_sections = ModuleSection.all
+    @pages = Page.all
   end
 
   # GET /module_sections/1 or /module_sections/1.json
   def show
+    @pages = Page.all
   end
 
   # GET /module_sections/new

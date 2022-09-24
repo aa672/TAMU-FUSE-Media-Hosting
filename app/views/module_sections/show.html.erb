@@ -10,5 +10,37 @@
   <%= @module_section.module_name %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Page</th>
+      <th>Module</th>
+      <th>Content</th>
+      <th>Page name</th>
+      <th>Page description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pages.each do |page| %>
+      <tr>
+
+        <% if page.module_id == @module_section.module_id %>
+            <td><%= page.page_id %></td>
+            <td><%= page.module_id %></td>
+            <td><%= page.content_id %></td>
+            <td><%= page.page_name %></td>
+            <td><%= page.page_description %></td>
+            <td><%= link_to 'Show', page %></td>
+            <td><%= link_to 'Edit', edit_page_path(page) %></td>
+            <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 <%= link_to 'Edit', edit_module_section_path(@module_section) %> |
 <%= link_to 'Back', module_sections_path %>
