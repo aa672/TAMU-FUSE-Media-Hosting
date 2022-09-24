@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Page:</strong>
+  <%= @page.page_id %>
+</p>
+
+<p>
+  <strong>Module:</strong>
+  <%= @page.module_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @page.content_id %>
+</p>
+
+<p>
+  <strong>Page name:</strong>
+  <%= @page.page_name %>
+</p>
+
+<p>
+  <strong>Page description:</strong>
+  <%= @page.page_description %>
+</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9YffrCViTVk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>

@@ -1,0 +1,32 @@
+<%= form_with(model: content_tag) do |form| %>
+  <% if content_tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(content_tag.errors.count, "error") %> prohibited this content_tag from being saved:</h2>
+
+      <ul>
+        <% content_tag.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :contentTag_id %>
+    <%= form.number_field :contentTag_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tag_id %>
+    <%= form.number_field :tag_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content_id %>
+    <%= form.number_field :content_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
