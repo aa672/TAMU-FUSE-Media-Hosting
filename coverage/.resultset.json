@@ -1,11 +1,64 @@
 {
   "RSpec": {
     "coverage": {
-      "/TAMU-FUSE-Media-Hosting/spec/feature/integration_spec.rb": {
+      "/media_hosting/spec/feature/integration_spec.rb": {
         "lines": [
           null,
           1,
           null,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0,
           0,
           0,
@@ -21,7 +74,7 @@
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/spec/rails_helper.rb": {
+      "/media_hosting/spec/rails_helper.rb": {
         "lines": [
           null,
           1,
@@ -52,17 +105,17 @@
           null,
           1,
           null,
+          0,
+          0,
+          null,
           1,
+          null,
           1,
           null,
-          0,
-          null,
-          0,
           null,
           null,
           null,
-          null,
-          0,
+          1,
           null,
           null,
           null,
@@ -80,16 +133,16 @@
           null,
           null,
           null,
-          0,
+          1,
           null,
           null,
-          0,
+          1,
           null,
           null,
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/environment.rb": {
+      "/media_hosting/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -98,7 +151,7 @@
           1
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/application.rb": {
+      "/media_hosting/config/application.rb": {
         "lines": [
           1,
           null,
@@ -124,7 +177,7 @@
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/boot.rb": {
+      "/media_hosting/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -132,7 +185,7 @@
           1
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/environments/test.rb": {
+      "/media_hosting/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -196,7 +249,7 @@
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/initializers/application_controller_renderer.rb": {
+      "/media_hosting/config/initializers/application_controller_renderer.rb": {
         "lines": [
           null,
           null,
@@ -208,7 +261,7 @@
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/initializers/assets.rb": {
+      "/media_hosting/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -226,7 +279,7 @@
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/initializers/backtrace_silencers.rb": {
+      "/media_hosting/config/initializers/backtrace_silencers.rb": {
         "lines": [
           null,
           null,
@@ -238,7 +291,7 @@
           1
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/initializers/content_security_policy.rb": {
+      "/media_hosting/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -272,7 +325,7 @@
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/initializers/cookies_serializer.rb": {
+      "/media_hosting/config/initializers/cookies_serializer.rb": {
         "lines": [
           null,
           null,
@@ -281,7 +334,7 @@
           1
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/initializers/filter_parameter_logging.rb": {
+      "/media_hosting/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -291,7 +344,7 @@
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/initializers/inflections.rb": {
+      "/media_hosting/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -311,7 +364,7 @@
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/initializers/mime_types.rb": {
+      "/media_hosting/config/initializers/mime_types.rb": {
         "lines": [
           null,
           null,
@@ -319,7 +372,7 @@
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/initializers/permissions_policy.rb": {
+      "/media_hosting/config/initializers/permissions_policy.rb": {
         "lines": [
           null,
           null,
@@ -334,7 +387,7 @@
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/initializers/wrap_parameters.rb": {
+      "/media_hosting/config/initializers/wrap_parameters.rb": {
         "lines": [
           null,
           null,
@@ -352,7 +405,7 @@
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/config/routes.rb": {
+      "/media_hosting/config/routes.rb": {
         "lines": [
           1,
           1,
@@ -367,55 +420,55 @@
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/app/helpers/application_helper.rb": {
+      "/media_hosting/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/app/helpers/content_tags_helper.rb": {
+      "/media_hosting/app/helpers/content_tags_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/app/helpers/contents_helper.rb": {
+      "/media_hosting/app/helpers/contents_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/app/helpers/module_sections_helper.rb": {
+      "/media_hosting/app/helpers/module_sections_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/app/helpers/modules_helper.rb": {
+      "/media_hosting/app/helpers/modules_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/app/helpers/pages_helper.rb": {
+      "/media_hosting/app/helpers/pages_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/app/helpers/passwords_helper.rb": {
+      "/media_hosting/app/helpers/passwords_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/TAMU-FUSE-Media-Hosting/app/helpers/tags_helper.rb": {
+      "/media_hosting/app/helpers/tags_helper.rb": {
         "lines": [
           1,
           null
         ]
       }
     },
-    "timestamp": 1663645911
+    "timestamp": 1664893011
   }
 }
