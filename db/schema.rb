@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_02_025029) do
+ActiveRecord::Schema.define(version: 2022_10_09_032248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 2022_10_02_025029) do
     t.integer "content_id"
     t.string "content_type"
     t.string "content_storage_link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "internship_ops", force: :cascade do |t|
+    t.integer "internship_id"
+    t.string "internship_name"
+    t.string "company_name"
+    t.string "contact_name"
+    t.string "contact_email"
+    t.string "company_link"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

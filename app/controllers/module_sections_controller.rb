@@ -5,11 +5,13 @@ class ModuleSectionsController < ApplicationController
   def index
     @module_sections = ModuleSection.all
     @pages = Page.all
+    @internship_ops = InternshipOp.all
   end
 
   # GET /module_sections/1 or /module_sections/1.json
   def show
     @pages = Page.all
+    @internship_ops = InternshipOp.all
   end
 
   # GET /module_sections/new

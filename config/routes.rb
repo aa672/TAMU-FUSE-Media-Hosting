@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :internship_ops
   resources :internships
   resources :module_sections
   resources :passwords
