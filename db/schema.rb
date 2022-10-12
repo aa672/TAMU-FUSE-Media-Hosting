@@ -10,19 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2022_09_18_200543) do
-=======
-ActiveRecord::Schema.define(version: 2022_09_19_215002) do
->>>>>>> 5e9290595f87d320904d0c132f4aff1c531a011d
+ActiveRecord::Schema.define(version: 2022_10_06_010727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-  create_table "videos", force: :cascade do |t|
-    t.string "title"
-=======
   create_table "content_tags", force: :cascade do |t|
     t.integer "contentTag_id"
     t.integer "tag_id"
@@ -74,9 +66,32 @@ ActiveRecord::Schema.define(version: 2022_09_19_215002) do
   create_table "tags", force: :cascade do |t|
     t.integer "tag_id"
     t.string "tag_name"
->>>>>>> 5e9290595f87d320904d0c132f4aff1c531a011d
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "video_files", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "attachment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.json "credentials"
+    t.string "session_token", null: false
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "youtube_sessions", force: :cascade do |t|
+    t.string "session_token", null: false
+    t.json "credentials"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["session_token"], name: "index_youtube_sessions_on_session_token"
   end
 
 end

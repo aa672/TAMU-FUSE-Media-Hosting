@@ -24,6 +24,12 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'google-api-client', '~> 0.53.0'
+
+#file uploading
+gem 'carrierwave' 
+
+gem 'bootstrap-sass'  
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

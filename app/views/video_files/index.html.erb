@@ -1,0 +1,37 @@
+<h1>VideoFiles</h1>
+<div class="container">   
+<% if !flash[:notice].blank? %>   
+   <div>   
+      <%= flash[:notice] %>   
+   </div>   
+<% end %>   
+  
+<br>   
+  
+<%= link_to "New Video File", video_files_middle_path %>   
+<br>   
+<br>   
+  
+<table border="3">   
+   <thead>   
+      <tr>   
+         <th>Candidate Name</th>   
+         <th>Download Link</th>   
+         <th>Action</th>   
+      </tr>   
+   </thead>   
+      
+   <tbody>   
+      <% @video_files.each do |video_files| %>   
+            
+         <tr>   
+            <td><%= video_files.title %></td>   
+            <td><%= link_to "Download", video_files.attachment_url %></td>   
+            <td><%= link_to "Delete",  video_files, method: :delete, confirm: "Are you sure you want to delete #{video_files.title}?" %></td>   
+         </tr>   
+            
+      <% end %>   
+   </tbody>   
+      
+</table>   
+</div> 
