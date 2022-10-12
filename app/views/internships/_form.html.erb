@@ -1,0 +1,57 @@
+<%= form_with(model: internship) do |form| %>
+  <% if internship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(internship.errors.count, "error") %> prohibited this internship from being saved:</h2>
+
+      <ul>
+        <% internship.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :internship_id %>
+    <%= form.number_field :internship_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :module_sections_id %>
+    <%= form.text_field :module_sections_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :internship_name %>
+    <%= form.text_field :internship_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_name %>
+    <%= form.text_field :company_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_name %>
+    <%= form.text_field :contact_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_email %>
+    <%= form.text_field :contact_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_link %>
+    <%= form.text_field :company_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module InternshipOpsHelper
+end

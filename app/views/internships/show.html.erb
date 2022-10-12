@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Internship:</strong>
+  <%= @internship.internship_id %>
+</p>
+
+<p>
+  <strong>Module sections:</strong>
+  <%= @internship.module_sections_id %>
+</p>
+
+<p>
+  <strong>Internship name:</strong>
+  <%= @internship.internship_name %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @internship.company_name %>
+</p>
+
+<p>
+  <strong>Contact name:</strong>
+  <%= @internship.contact_name %>
+</p>
+
+<p>
+  <strong>Contact email:</strong>
+  <%= @internship.contact_email %>
+</p>
+
+<p>
+  <strong>Company link:</strong>
+  <%= @internship.company_link %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @internship.description %>
+</p>
+
+<%= link_to 'Edit', edit_internship_path(@internship) %> |
+<%= link_to 'Back', internships_path %>
