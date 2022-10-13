@@ -24,23 +24,13 @@ class ContentsController < ApplicationController
 
   # GET /contents/1/edit
   def edit
+    @content = Content.find(params[:id])
   end
 
   # POST /contents or /contents.json
   def create
     @content = Content.new(content_params)
-
-    # respond_to do |format|
-    #   if @content.save
-    #     format.html { redirect_to content_url(@content), notice: "Content was successfully created." }
-    #     format.json { render :show, status: :created, location: @content }
-    #   else
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @content.errors, status: :unprocessable_entity }
-    #   end
-    # end
     if @content.save
-      #upload_video(video_files_params[:attachment], video_files_params[:title], video_files_params[:description])  
       redirect_to contents_path, notice: "Successfully uploaded."   
     else   
       render "new"   
@@ -51,7 +41,7 @@ class ContentsController < ApplicationController
   def update
     respond_to do |format|
       if @content.update(content_params)
-        format.html { redirect_to content_url(@content), notice: "Content was successfully updated." }
+        format.html { redirect_to contents_path, notice: "Content was successfully updated." }
         format.json { render :show, status: :ok, location: @content }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -78,7 +68,6 @@ class ContentsController < ApplicationController
 
     #store the auth client creds in the db
     session[:credentials] = auth_client.to_json
-    #VideoFile.create!(credentials: auth_client)
 
     redirect_to '/contents/new'
   end

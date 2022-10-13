@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'contents/new'
   get 'contents/create'
   get 'contents/destroy'
+  get 'contents/:id', to: 'contents#edit'
+  patch 'contents/:id', to: 'contents#update'
   get '/contents', to: 'contents#index'
   get '/contents/middle', to: 'contents#middle'
   get '/contents/callback', to: 'contents#callback'

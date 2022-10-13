@@ -5,9 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Content</th>
-      <th>Content type</th>
-      <th>Content storage link</th>
+      <th>Title |</th>
+      <th>Content ID |</th>
+      <th>Content Type |</th>
+      <th>Content Storage Link |</th>
+      <th>Actions</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,7 +22,6 @@
         <td><%= content.content_type %></td>
         <td><%= content.content_storage_link %></td> 
         <td><%= link_to "Download", content.attachment_url %></td>   
-        <td><%= link_to 'Show', content %></td>
         <td><%= link_to 'Edit', edit_content_path(content) %></td>
         <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
