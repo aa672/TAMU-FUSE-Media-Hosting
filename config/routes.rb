@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :pages
   resources :contents, only: [:index, :new, :create, :destroy, :edit]
   resources :modules
+  get '/contents/middle', to: 'contents#middle'
+  get '/contents/callback', to: 'contents#callback'
   root 'module_sections#index' 
   get 'contents/index'
   get 'contents/new'
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
   get 'contents/:id', to: 'contents#edit'
   patch 'contents/:id', to: 'contents#update'
   get '/contents', to: 'contents#index'
-  get '/contents/middle', to: 'contents#middle'
-  get '/contents/callback', to: 'contents#callback'
+  
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

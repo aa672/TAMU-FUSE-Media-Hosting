@@ -1,7 +1,7 @@
 require 'google/apis/youtube_v3'
 require 'google/api_client/client_secrets'
 class ContentsController < ApplicationController
-  before_action :set_content, only: %i[ show edit update destroy ]
+  before_action :set_content, only: %i[ show update edit destroy ]
 
   # GET /contents or /contents.json
   def index
@@ -109,7 +109,7 @@ class ContentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_content
-      @content = Content.find(params[:id])
+      @content = Content.find(params[:id]) 
     end
 
     # Only allow a list of trusted parameters through.
