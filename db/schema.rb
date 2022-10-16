@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_19_215002) do
+ActiveRecord::Schema.define(version: 2022_10_12_012601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,37 @@ ActiveRecord::Schema.define(version: 2022_09_19_215002) do
     t.string "content_storage_link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+    t.string "description"
+    t.string "attachment"
+    t.string "session_token"
+    t.json "credentials"
+  end
+
+  create_table "internship_ops", force: :cascade do |t|
+    t.integer "internship_id"
+    t.string "internship_name"
+    t.string "company_name"
+    t.string "contact_name"
+    t.string "contact_email"
+    t.string "company_link"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "internships", force: :cascade do |t|
+    t.integer "internship_id"
+    t.bigint "module_sections_id", null: false
+    t.string "internship_name"
+    t.string "company_name"
+    t.string "contact_name"
+    t.string "contact_email"
+    t.string "company_link"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["module_sections_id"], name: "index_internships_on_module_sections_id"
   end
 
   create_table "module_sections", force: :cascade do |t|
@@ -70,4 +101,11 @@ ActiveRecord::Schema.define(version: 2022_09_19_215002) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "videos", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "internships", "module_sections", column: "module_sections_id"
 end
