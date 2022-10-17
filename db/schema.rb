@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_17_172941) do
+ActiveRecord::Schema.define(version: 2022_10_17_175632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,7 @@ ActiveRecord::Schema.define(version: 2022_10_17_172941) do
     t.json "credentials"
   end
 
-  create_table "internship_ops", force: :cascade do |t|
-    t.integer "internship_id"
+  create_table "internship_ops", primary_key: "internshipID", force: :cascade do |t|
     t.string "internship_name"
     t.string "company_name"
     t.string "contact_name"
