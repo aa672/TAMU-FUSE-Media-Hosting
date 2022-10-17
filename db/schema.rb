@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_09_032248) do
+ActiveRecord::Schema.define(version: 2022_10_12_012601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(version: 2022_10_09_032248) do
     t.string "content_storage_link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+    t.string "description"
+    t.string "attachment"
+    t.string "session_token"
+    t.json "credentials"
   end
 
   create_table "internship_ops", force: :cascade do |t|
@@ -92,6 +97,12 @@ ActiveRecord::Schema.define(version: 2022_10_09_032248) do
   create_table "tags", force: :cascade do |t|
     t.integer "tag_id"
     t.string "tag_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
