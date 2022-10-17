@@ -19,8 +19,8 @@
   <table>
     <thead>
       <tr>
-        <th>Module</th>
-        <th>Module name</th>
+        <th>Module ID</th>
+        <th>Module Name</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -28,7 +28,7 @@
     <tbody>
       <% @module_sections.each do |module_section| %>
         <tr>
-          <td><%= module_section.module_id %></td>
+          <td><%= module_section.modID %></td>
           <td><%= module_section.module_name %></td>
         </tr>
       <% end %>
@@ -39,7 +39,7 @@
 
   <div class="field">
     <%= form.label :module_id %>
-    <%= form.select :module_id, ModuleSection.order(:module_id).map { |module_section| [module_section.module_id, module_section.id] }, include_blank: true, id: "id_of_the_module_section_id_select_box" %>
+    <%= form.select :module_id, ModuleSection.order(:modID).map { |module_section| [module_section.modID, module_section.id] }, include_blank: true, id: "id_of_the_module_section_id_select_box" %>
   </div>
 
   <div class="field">

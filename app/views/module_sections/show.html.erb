@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Module:</strong>
-  <%= @module_section.module_id %>
-</p>
-
-<p>
   <strong>Module name:</strong>
   <%= @module_section.module_name %>
 </p>
@@ -62,7 +57,7 @@
       <% @pages.each do |page| %>
         <tr>
 
-          <% if page.module_id == @module_section.module_id %>
+          <% if page.module_id == @module_section.modID %>
               <td><%= page.page_id %></td>
               <td><%= page.module_id %></td>
               <td><%= page.content_id %></td>

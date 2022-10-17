@@ -70,6 +70,6 @@ class ModuleSectionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def module_section_params
-      params.require(:module_section).permit(:module_id, :module_name)
+      params.require(:module_section).permit(:module_name)
     end
 end
