@@ -1,31 +1,5 @@
-<div>
-<%= form_for @content, html: { multipart: true } do |f| %>   
-    <%= f.label :title %>   
-    <%= f.text_field :title %>   
-    <br>
-    <br>   
-    <%= f.label :description %>   
-    <%= f.text_field :description %>   
-    <br>
-    <br>   
-    <%= f.label :attachment %>   
-    <%= f.file_field :attachment %>   
-    <br>
-    <br>
-    <%= f.label :content_id %>
-    <%= f.number_field :content_id %>
-    <br>
-    <br>
-    <%= f.label :content_type %>
-    <%= f.text_field :content_type %>
-    <br>
-    <br>
-    <%= f.label :content_storage_link %>
-    <%= f.text_field :content_storage_link %>
-    <br>   
-    <br>
-    <%= f.submit "Save" %>   
-<% end %>
-<br>
+<h1>New Content</h1>
+
+<%= render 'form', content: @content %>
+
 <%= link_to 'Back', contents_path %>
-</div>
