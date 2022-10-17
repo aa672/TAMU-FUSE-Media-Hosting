@@ -10,7 +10,6 @@
   <table>
     <thead>
       <tr>
-        <th>Internship</th>
         <th>Internship name</th>
         <th>Company name</th>
         <th>Contact name</th>
@@ -24,7 +23,6 @@
     <tbody>
       <% @internship_ops.each do |internship_op| %>
         <tr>
-          <td><%= internship_op.internshipID %></td>
           <td><%= internship_op.internship_name %></td>
           <td><%= internship_op.company_name %></td>
           <td><%= internship_op.contact_name %></td>
@@ -44,7 +42,6 @@
   <table>
     <thead>
       <tr>
-        <th>Page</th>
         <th>Module</th>
         <th>Content</th>
         <th>Page name</th>
@@ -58,8 +55,7 @@
         <tr>
 
           <% if page.module_id == @module_section.modID %>
-              <td><%= page.pageID %></td>
-              <td><%= page.module_id %></td>
+              <td><%= @module_section.module_name %></td>
               <td><%= page.content_id %></td>
               <td><%= page.page_name %></td>
               <td><%= page.page_description %></td>
