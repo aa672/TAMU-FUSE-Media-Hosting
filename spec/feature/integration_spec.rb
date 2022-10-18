@@ -13,8 +13,11 @@ end
 
 RSpec.describe 'Editing a module', type: :feature do
   scenario 'valid inputs' do
+    visit new_module_section_path
+    fill_in 'Module name', with: 'An incredible module'
+    click_on 'Create Module section'
     visit module_sections_path
-    visit edit_module_section_path(@module_section)
+    visit edit_module_section_path(module_name: 'An incredible module')
     fill_in 'Module name', with: 'An incredible module module'
     click_on 'Update Module section'
     visit module_sections_path
@@ -24,8 +27,12 @@ end
 
 RSpec.describe 'Creating a page', type: :feature do
   scenario 'valid inputs' do
+    visit new_module_section_path
+    fill_in 'Module name', with: 'An incredible module'
+    click_on 'Create Module section'
+    visit module_sections_path
     visit new_page_path
-    fill_in 'Module', with: '22'
+    select('1', :from => 'Module')
     fill_in 'Content', with: '22'
     fill_in 'Page name', with: 'TestName'
     fill_in 'Page description', with: 'TestDescription'
@@ -64,7 +71,6 @@ RSpec.describe 'Creating content', type: :feature do
     visit new_content_path
     fill_in 'Title', with: 'test'
     fill_in 'Description', with: 'this is a test'
-    fill_in 'Attachment', with: 'test.jpg'
     fill_in 'Content', with: '1'
     fill_in 'Content type', with: 'jpg'
     fill_in 'Content storage link', with: 'test'

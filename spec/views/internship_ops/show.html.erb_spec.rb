@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe "internship_ops/show", type: :view do
   before(:each) do
     @internship_op = assign(:internship_op, InternshipOp.create!(
-      internship_id: 2,
       internship_name: "Internship Name",
       company_name: "Company Name",
       contact_name: "Contact Name",
@@ -15,7 +14,6 @@ RSpec.describe "internship_ops/show", type: :view do
 
   it "renders attributes in <p>" do
     render
-    expect(rendered).to match(/2/)
     expect(rendered).to match(/Internship Name/)
     expect(rendered).to match(/Company Name/)
     expect(rendered).to match(/Contact Name/)

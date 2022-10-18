@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "contents/new", type: :view do
   before(:each) do
-    @content = assign(:content, content.create!(
+    @content = assign(:contents, Content.create!(
       title: "test",
       description: "This is a test",
       attachment: "test.jpg",

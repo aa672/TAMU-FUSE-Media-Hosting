@@ -4,7 +4,6 @@ RSpec.describe "internships/new", type: :view do
   before(:each) do
     assign(:internship, Internship.new(
       internship_id: 1,
-      module_sections: nil,
       internship_name: "MyString",
       company_name: "MyString",
       contact_name: "MyString",
@@ -20,8 +19,6 @@ RSpec.describe "internships/new", type: :view do
     assert_select "form[action=?][method=?]", internships_path, "post" do
 
       assert_select "input[name=?]", "internship[internship_id]"
-
-      assert_select "input[name=?]", "internship[module_sections_id]"
 
       assert_select "input[name=?]", "internship[internship_name]"
 

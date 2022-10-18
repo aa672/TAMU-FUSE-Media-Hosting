@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe "internship_ops/new", type: :view do
   before(:each) do
     assign(:internship_op, InternshipOp.new(
-      internship_id: 1,
       internship_name: "MyString",
       company_name: "MyString",
       contact_name: "MyString",
@@ -17,8 +16,6 @@ RSpec.describe "internship_ops/new", type: :view do
     render
 
     assert_select "form[action=?][method=?]", internship_ops_path, "post" do
-
-      assert_select "input[name=?]", "internship_op[internship_id]"
 
       assert_select "input[name=?]", "internship_op[internship_name]"
 

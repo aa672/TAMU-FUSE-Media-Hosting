@@ -11,7 +11,7 @@ RSpec.describe ContentsController, type: :routing do
     end
 
     it "routes to #edit" do
-      expect(get: "/contents/1/edit").to route_to("contents#edit", id: "1")
+      expect(get: "/contents/:id/edit").to route_to("contents#edit")
     end
 
     it "routes to #create" do
@@ -19,15 +19,15 @@ RSpec.describe ContentsController, type: :routing do
     end
 
     it "routes to #update via PUT" do
-      expect(put: "/contents/1").to route_to("contents#update", id: "1")
+      expect(put: "/contents/:id").to route_to("contents#update")
     end
 
     it "routes to #update via PATCH" do
-      expect(patch: "/contents/1").to route_to("contents#update", id: "1")
+      expect(patch: "/contents/:id").to route_to("contents#update")
     end
 
     it "routes to #destroy" do
-      expect(delete: "/contents/1").to route_to("contents#destroy", id: "1")
+      expect(delete: "/contents/:id").to route_to("contents#destroy")
     end
   end
 end
