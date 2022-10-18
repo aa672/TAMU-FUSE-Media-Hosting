@@ -65,6 +65,6 @@ class InternshipsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def internship_params
-      params.require(:internship).permit(:internship_id, :module_sections_id, :internship_name, :company_name, :contact_name, :contact_email, :company_link, :description)
+      params.require(:internship).permit(:internship_id, :internship_name, :company_name, :contact_name, :contact_email, :company_link, :description)
     end
 end

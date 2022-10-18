@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_02_025029) do
+ActiveRecord::Schema.define(version: 2022_10_17_175632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,11 +29,14 @@ ActiveRecord::Schema.define(version: 2022_10_02_025029) do
     t.string "content_storage_link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+    t.string "description"
+    t.string "attachment"
+    t.string "session_token"
+    t.json "credentials"
   end
 
-  create_table "internships", force: :cascade do |t|
-    t.integer "internship_id"
-    t.bigint "module_sections_id", null: false
+  create_table "internship_ops", primary_key: "internshipID", force: :cascade do |t|
     t.string "internship_name"
     t.string "company_name"
     t.string "contact_name"
@@ -42,11 +45,21 @@ ActiveRecord::Schema.define(version: 2022_10_02_025029) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["module_sections_id"], name: "index_internships_on_module_sections_id"
   end
 
-  create_table "module_sections", force: :cascade do |t|
-    t.integer "module_id"
+  create_table "internships", force: :cascade do |t|
+    t.integer "internship_id"
+    t.string "internship_name"
+    t.string "company_name"
+    t.string "contact_name"
+    t.string "contact_email"
+    t.string "company_link"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "module_sections", primary_key: "modID", force: :cascade do |t|
     t.string "module_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -59,8 +72,7 @@ ActiveRecord::Schema.define(version: 2022_10_02_025029) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "pages", force: :cascade do |t|
-    t.integer "page_id"
+  create_table "pages", primary_key: "pageID", force: :cascade do |t|
     t.integer "module_id"
     t.integer "content_id"
     t.string "page_name"
@@ -84,5 +96,10 @@ ActiveRecord::Schema.define(version: 2022_10_02_025029) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "internships", "module_sections", column: "module_sections_id"
+  create_table "videos", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
 end

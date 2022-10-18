@@ -5,7 +5,6 @@ RSpec.describe "internships/index", type: :view do
     assign(:internships, [
       Internship.create!(
         internship_id: 2,
-        module_sections: nil,
         internship_name: "Internship Name",
         company_name: "Company Name",
         contact_name: "Contact Name",
@@ -15,7 +14,6 @@ RSpec.describe "internships/index", type: :view do
       ),
       Internship.create!(
         internship_id: 2,
-        module_sections: nil,
         internship_name: "Internship Name",
         company_name: "Company Name",
         contact_name: "Contact Name",
@@ -29,7 +27,6 @@ RSpec.describe "internships/index", type: :view do
   it "renders a list of internships" do
     render
     assert_select "tr>td", text: 2.to_s, count: 2
-    assert_select "tr>td", text: nil.to_s, count: 2
     assert_select "tr>td", text: "Internship Name".to_s, count: 2
     assert_select "tr>td", text: "Company Name".to_s, count: 2
     assert_select "tr>td", text: "Contact Name".to_s, count: 2
