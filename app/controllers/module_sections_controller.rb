@@ -5,13 +5,11 @@ class ModuleSectionsController < ApplicationController
   def index
     @module_sections = ModuleSection.all
     @pages = Page.all
-    @internship_ops = InternshipOp.all
   end
 
   # GET /module_sections/1 or /module_sections/1.json
   def show
     @pages = Page.all
-    @internship_ops = InternshipOp.all
   end
 
   # GET /module_sections/new
@@ -21,7 +19,6 @@ class ModuleSectionsController < ApplicationController
 
   # GET /module_sections/1/edit
   def edit
-    @module_section = ModuleSection.find(params[:id])
   end
 
   # POST /module_sections or /module_sections.json
