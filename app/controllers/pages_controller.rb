@@ -22,7 +22,8 @@ class PagesController < ApplicationController
 
   # POST /pages or /pages.json
   def create
-    @page = Page.new(page_params)
+    @page = Page.new(page_params.except(:tags))
+    create_or_delete_page_tags(@page, params[:page][:tags])
 
     respond_to do |format|
       if @page.save
@@ -37,8 +38,10 @@ class PagesController < ApplicationController
 
   # PATCH/PUT /pages/1 or /pages/1.json
   def update
+    create_or_delete_page_tags(@page, params[:page][:tags])
+    
     respond_to do |format|
-      if @page.update(page_params)
+      if @page.update(page_params.except(:tags))
         format.html { redirect_to page_url(@page), notice: "Page was successfully updated." }
         format.json { render :show, status: :ok, location: @page }
       else
@@ -59,6 +62,20 @@ class PagesController < ApplicationController
   end
 
   private
+
+  def create_or_delete_page_tags(page, tags)
+    # Delete all tags
+    page.content_tags.destroy_all
+    tags = tags.strip.split(",").reject(&:empty?)
+
+    # Create new tags
+    tags.each do |tag|
+      page.tags << Tag.find_or_create_by(tag_name: tag)
+      #page.tags.create(tag_name: tag.strip)
+    end
+  end
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_page
       @page = Page.find(params[:id])
@@ -66,6 +83,6 @@ class PagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def page_params
-      params.require(:page).permit(:page_id, :module_id, :content_id, :page_name, :page_description)
+      params.require(:page).permit(:page_id, :module_id, :content_id, :page_name, :page_description, :tags)
     end
 end

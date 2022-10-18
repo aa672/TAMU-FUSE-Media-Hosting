@@ -36,6 +36,13 @@
     <%= form.text_field :page_description %>
   </div>
 
+  <div class="tags">
+  # <%= form.collection_check_boxes :tag_ids, Tag.all, :id, :tag_name %>
+    <%= form.label :tags, style: "display: block" %>
+    <%= form.text_field :tags, placeholder: "Tags", value: page.tags.map(&:name).join(",") %>
+    
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
