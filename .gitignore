@@ -26,6 +26,35 @@
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
 /config/master.key
 
 /public/packs
@@ -48,3 +77,11 @@ yarn-debug.log*
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+/coverage/simplecov
+/coverage/simplecov-html
+/coverage/doclie
+/coverage/.last_run.json
+/coverage/.resultset.json*
+/coverage/assets
+/coverage/index.html
