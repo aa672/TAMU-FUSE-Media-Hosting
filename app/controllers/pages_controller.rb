@@ -4,25 +4,31 @@ class PagesController < ApplicationController
   # GET /pages or /pages.json
   def index
     @pages = Page.all
+    @module_sections = ModuleSection.all
   end
 
   # GET /pages/1 or /pages/1.json
   def show
     @pages = Page.all
+    @module_sections = ModuleSection.all
   end
 
   # GET /pages/new
   def new
     @page = Page.new
+    @module_sections = ModuleSection.all
   end
 
   # GET /pages/1/edit
   def edit
+    @page = Page.find(params[:id])
+    @module_sections = ModuleSection.all
   end
 
   # POST /pages or /pages.json
   def create
     @page = Page.new(page_params)
+    @module_sections = ModuleSection.all
 
     respond_to do |format|
       if @page.save

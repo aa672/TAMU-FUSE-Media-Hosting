@@ -1,9 +1,16 @@
+require 'google/apis/youtube_v3'
+require 'google/api_client/client_secrets'
 class ContentsController < ApplicationController
-  before_action :set_content, only: %i[ show edit update destroy ]
+  before_action :set_content, only: %i[ show update edit destroy ]
 
   # GET /contents or /contents.json
   def index
     @contents = Content.all
+  end
+
+  def middle
+    redirect_to auth_client.authorization_uri.to_s
+    #ADD TAGS AS A PARAM FOR CONTENT OBJECT WHEN MOVE OVER 
   end
 
   # GET /contents/1 or /contents/1.json
@@ -17,28 +24,24 @@ class ContentsController < ApplicationController
 
   # GET /contents/1/edit
   def edit
+    @content = Content.find(params[:id])
   end
 
   # POST /contents or /contents.json
   def create
     @content = Content.new(content_params)
-
-    respond_to do |format|
-      if @content.save
-        format.html { redirect_to content_url(@content), notice: "Content was successfully created." }
-        format.json { render :show, status: :created, location: @content }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @content.errors, status: :unprocessable_entity }
-      end
-    end
+    if @content.save
+      redirect_to contents_path, notice: "Successfully uploaded."   
+    else   
+      render "new"   
+    end 
   end
 
   # PATCH/PUT /contents/1 or /contents/1.json
   def update
     respond_to do |format|
       if @content.update(content_params)
-        format.html { redirect_to content_url(@content), notice: "Content was successfully updated." }
+        format.html { redirect_to contents_path, notice: "Content was successfully updated." }
         format.json { render :show, status: :ok, location: @content }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -107,11 +110,11 @@ class ContentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_content
-      @content = Content.find(params[:id])
+      @content = Content.find(params[:id]) 
     end
 
     # Only allow a list of trusted parameters through.
     def content_params
-      params.require(:content).permit(:content_id, :content_type, :content_storage_link)
+      params.require(:content).permit(:content_id, :content_type, :content_storage_link, :title, :description, :attachment)
     end
 end
