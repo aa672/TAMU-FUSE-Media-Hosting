@@ -103,8 +103,8 @@ class ContentsController < ApplicationController
   end
   
   def redirect_uri
-    #'http://localhost:3000/contents/callback'
-    'https://stage-test-tamu-fuse.herokuapp.com/contents/callback'
+    'http://localhost:3000/contents/callback'
+    #'https://stage-test-tamu-fuse.herokuapp.com/contents/callback'
   end
 
   private

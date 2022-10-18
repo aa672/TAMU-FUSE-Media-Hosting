@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "content/index", type: :view do
+RSpec.describe "contents/index", type: :view do
   before(:each) do
     @content = assign(:content, content.create!(
       title: "test",

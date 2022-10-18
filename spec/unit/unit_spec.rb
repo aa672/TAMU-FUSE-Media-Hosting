@@ -61,7 +61,7 @@ end
 # Testing acceptance criteria for the creation of content
 RSpec.describe Content, type: :model do
   subject do
-    described_class.new(title: 'test', description: 'This is a test', attachment: 'test.jpg', content_id: '22', content_type: 'jpg', content_storage_link: 'testlink', )
+    described_class.new(title: 'test', description: 'This is a test', content_id: '22', content_type: 'jpg', content_storage_link: 'testlink', )
   end
 
   it 'is valid with all valid attributes' do
@@ -75,11 +75,6 @@ RSpec.describe Content, type: :model do
 
   it 'is not valid without a description' do
     subject.description = nil
-    expect(subject).not_to be_valid
-  end
-
-  it 'is not valid without an attachment' do
-    subject.attachment = nil
     expect(subject).not_to be_valid
   end
 

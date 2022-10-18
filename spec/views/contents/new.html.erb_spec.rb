@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "module_sections/new", type: :view do
+RSpec.describe "contents/new", type: :view do
   before(:each) do
     @content = assign(:content, content.create!(
       title: "test",
