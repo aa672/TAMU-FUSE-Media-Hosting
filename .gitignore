@@ -56,7 +56,6 @@ yarn-debug.log*
 .yarn-integrity
 
 /config/master.key
-<<<<<<< HEAD
 
 /public/packs
 /public/packs-test
@@ -86,5 +85,3 @@ yarn-debug.log*
 /coverage/.resultset.json*
 /coverage/assets
 /coverage/index.html
-=======
->>>>>>> 6348a23659c1790911245644a1af9e1cc40706dc
