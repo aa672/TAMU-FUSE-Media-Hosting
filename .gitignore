@@ -48,3 +48,11 @@ yarn-debug.log*
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+/coverage/simplecov
+/coverage/simplecov-html
+/coverage/doclie
+/coverage/.last_run.json
+/coverage/.resultset.json*
+/coverage/assets
+/coverage/index.html
