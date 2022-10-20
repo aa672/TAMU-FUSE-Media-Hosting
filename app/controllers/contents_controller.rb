@@ -9,7 +9,8 @@ class ContentsController < ApplicationController
   end
 
   def middle
-    redirect_to auth_client.authorization_uri.to_s
+    redirect_to '/contents/new'
+    #redirect_to auth_client.authorization_uri.to_s
     #ADD TAGS AS A PARAM FOR CONTENT OBJECT WHEN MOVE OVER 
   end
 
