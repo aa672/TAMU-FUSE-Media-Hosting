@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'contents/:id', to: 'contents#edit'
   patch 'contents/:id', to: 'contents#update'
   get '/contents', to: 'contents#index'
-  
+  post '/passwords/new', to: 'passwords#create'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

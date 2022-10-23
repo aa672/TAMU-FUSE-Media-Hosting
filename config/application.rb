@@ -18,5 +18,7 @@ module MediaHosting
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.user_password = '12345'
+    config.admin_password = '54321'
   end
 end

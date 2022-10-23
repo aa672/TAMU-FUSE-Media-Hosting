@@ -1,70 +1,19 @@
 class PasswordsController < ApplicationController
-  before_action :set_password, only: %i[ show edit update destroy ]
-
-  # GET /passwords or /passwords.json
-  def index
-    @passwords = Password.all
-  end
-
-  # GET /passwords/1 or /passwords/1.json
-  def show
-  end
-
-  # GET /passwords/new
   def new
-    @password = Password.new
+    # Nothing needed here because all your #new view needs is a password field
   end
 
-  # GET /passwords/1/edit
-  def edit
-  end
-
-  # POST /passwords or /passwords.json
   def create
-    @password = Password.new(password_params)
+    unless params[:password].present?
+      return redirect_back(fallback_location: root_path, alert: 'Password is required.')
+    end
 
-    respond_to do |format|
-      if @password.save
-        format.html { redirect_to password_url(@password), notice: "Password was successfully created." }
-        format.json { render :show, status: :created, location: @password }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @password.errors, status: :unprocessable_entity }
-      end
+    if params[:password] == Rails.configuration.user_password
+      cookies[:user_password_verified] = true
+      redirect_to(root_path, notice: 'Password verified.')
+    else
+      cookies.delete(:user_password_verified)
+      redirect_back(fallback_location: root_path, alert: 'Incorrect password entered.')
     end
   end
-
-  # PATCH/PUT /passwords/1 or /passwords/1.json
-  def update
-    respond_to do |format|
-      if @password.update(password_params)
-        format.html { redirect_to password_url(@password), notice: "Password was successfully updated." }
-        format.json { render :show, status: :ok, location: @password }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @password.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /passwords/1 or /passwords/1.json
-  def destroy
-    @password.destroy
-
-    respond_to do |format|
-      format.html { redirect_to passwords_url, notice: "Password was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_password
-      @password = Password.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def password_params
-      params.require(:password).permit(:password_id, :password_name, :password)
-    end
 end

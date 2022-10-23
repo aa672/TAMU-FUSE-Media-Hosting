@@ -1,5 +1,6 @@
 class ModuleSectionsController < ApplicationController
   before_action :set_module_section, only: %i[ show edit update destroy ]
+  before_action :require_password_verification
 
   # GET /module_sections or /module_sections.json
   def index
