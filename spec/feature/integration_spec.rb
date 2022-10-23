@@ -39,7 +39,6 @@ RSpec.describe 'Creating a page', type: :feature do
     visit new_module_section_path
     fill_in 'Module name', with: 'An incredible module'
     click_on 'Create Module section'
-    visit module_sections_path
     visit new_page_path
     select('1', :from => 'Module')
     fill_in 'Content', with: '22'
