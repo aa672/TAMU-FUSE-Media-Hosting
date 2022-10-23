@@ -3,6 +3,9 @@ require 'rails_helper'
 
 RSpec.describe 'Creating a module', type: :feature do
   scenario 'valid inputs' do
+    visit new_password_path
+    fill_in 'Password', with: '12345'
+    click_on 'Save'
     visit new_module_section_path
     fill_in 'Module name', with: 'An incredible module'
     click_on 'Create Module section'
@@ -13,6 +16,9 @@ end
 
 RSpec.describe 'Editing a module', type: :feature do
   scenario 'valid inputs' do
+    visit new_password_path
+    fill_in 'Password', with: '12345'
+    click_on 'Save'
     visit new_module_section_path
     fill_in 'Module name', with: 'An incredible module'
     click_on 'Create Module section'
@@ -27,6 +33,9 @@ end
 
 RSpec.describe 'Creating a page', type: :feature do
   scenario 'valid inputs' do
+    visit new_password_path
+    fill_in 'Password', with: '12345'
+    click_on 'Save'
     visit new_module_section_path
     fill_in 'Module name', with: 'An incredible module'
     click_on 'Create Module section'
@@ -44,6 +53,9 @@ end
 
 RSpec.describe 'Edit a page', type: :feature do
   scenario 'valid inputs' do
+    visit new_password_path
+    fill_in 'Password', with: '12345'
+    click_on 'Save'
     visit new_page_path
     fill_in 'Module', with: '22'
     fill_in 'Content', with: '22'
@@ -68,6 +80,9 @@ end
 
 RSpec.describe 'Creating content', type: :feature do
   scenario 'valid inputs' do
+    visit new_password_path
+    fill_in 'Password', with: '12345'
+    click_on 'Save'
     visit new_content_path
     fill_in 'Title', with: 'test'
     fill_in 'Description', with: 'this is a test'
@@ -77,5 +92,14 @@ RSpec.describe 'Creating content', type: :feature do
     click_on 'Save'
     visit contents_path
     expect(page).to have_content('test')
+  end
+end
+
+RSpec.describe 'Entering a password', type: :feature do
+  scenario 'valid inputs' do
+    visit new_password_path
+    fill_in 'Password', with: '12345'
+    click_on 'Save'
+    expect(page).to have_content('Modules')
   end
 end
