@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_23_021924) do
+ActiveRecord::Schema.define(version: 2022_10_26_025826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,7 @@ ActiveRecord::Schema.define(version: 2022_10_23_021924) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "contents", force: :cascade do |t|
-    t.integer "content_id"
+  create_table "contents", primary_key: "contentID", force: :cascade do |t|
     t.string "content_type"
     t.string "content_storage_link"
     t.datetime "created_at", precision: 6, null: false
