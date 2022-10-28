@@ -37,9 +37,28 @@
     <%= form.select :module_id, ModuleSection.order(:modID).map { |module_section| [module_section.modID, module_section.id] }, include_blank: true, id: "id_of_the_module_section_id_select_box" %>
   </div>
 
+  <table>
+    <thead>
+      <tr>
+        <th>Content ID</th>
+        <th>Content Title</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @contents.each do |content| %>
+        <tr>
+          <td><%= content.content_id %></td>
+          <td><%= content.title %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
   <div class="field">
     <%= form.label :content_id %>
-    <%= form.number_field :content_id %>
+    <%= form.select :content_id, Content.order(:content_id).map { |content| [content.content_id, content.id] }, include_blank: true, :multiple => true, id: "id_of_the_content_id_select_box" %>
   </div>
 
   <div class="field">
