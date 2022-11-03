@@ -49,7 +49,7 @@
     <tbody>
       <% @contents.each do |content| %>
         <tr>
-          <td><%= content.content_id %></td>
+          <td><%= content.contentID %></td>
           <td><%= content.title %></td>
         </tr>
       <% end %>
@@ -57,8 +57,8 @@
   </table>
 
   <div class="field">
-    <%= form.label :content_id %>
-    <%= form.select :content_id, Content.order(:content_id).map { |content| [content.content_id, content.id] }, include_blank: true, :multiple => true, id: "id_of_the_content_id_select_box" %>
+    <%= form.label :content_ids %>
+    <%= collection_select(:page, :content_ids, @contents, :contentID, :title, {include_hidden: false}, {:multiple => true}) %>
   </div>
 
   <div class="field">
