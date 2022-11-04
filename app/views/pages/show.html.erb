@@ -7,7 +7,13 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @page.content_ids %>
+  <% @page.content_ids.each do |item| %>
+      <%if @contents.find(item).content_type == 'pdf'%>
+          <embed src=<%=@contents.find(item).attachment_url%> width="500" height="375" type="application/pdf">
+        <%else%> 
+          <iframe width="500" height="375" src=<%=@contents.find(item).attachment_url%> frameborder="0" allowfullscreen></iframe> 
+      <%end%>
+    <% end %>
 </p>
 
 <p>

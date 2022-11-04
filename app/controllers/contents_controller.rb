@@ -117,6 +117,6 @@ class ContentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def content_params
-      params.require(:content).permit(:content_type, :content_storage_link, :title, :description, :attachment)
+      params.require(:content).permit(:content_type, :title, :description, :attachment)
     end
 end
