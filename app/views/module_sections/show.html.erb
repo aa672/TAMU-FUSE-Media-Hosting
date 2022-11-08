@@ -43,7 +43,7 @@
     </thead>
 
     <tbody>
-      <% @pages.each do |page| %>
+      <% @pages.try(:each) do |page| %>
         <tr>
 
           <% if page.module_id == @module_section.modID %>

@@ -6,9 +6,7 @@ RSpec.describe "contents/new", type: :view do
       title: "test",
       description: "This is a test",
       attachment: "test.jpg",
-      content_id: "1",
       content_type: "jpg",
-      content_storage_link: "testlink"
     ))
   end
 
@@ -23,11 +21,7 @@ RSpec.describe "contents/new", type: :view do
       
       assert_select "input[name=?]", "content[attachment]"
       
-      assert_select "input[name=?]", "content[content_id]"
-      
       assert_select "input[name=?]", "content[content_type]"
-
-      assert_select "input[name=?]", "content[content_storage_link]"
     end
   end
 end

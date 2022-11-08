@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @contents.each do |content| %>
+    <% @contents.try(:each) do |content| %>
       <tr>
         <td><%= content.title %></td> 
         <td><%= content.contentID %></td>
