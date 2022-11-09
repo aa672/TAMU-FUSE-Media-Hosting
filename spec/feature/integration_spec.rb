@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe 'Creating a module', type: :feature do
   scenario 'valid inputs' do
     visit new_password_path
-    fill_in 'Password', with: '12345'
+    fill_in 'Password', with: '54321'
     click_on 'Save'
     visit new_module_section_path
     fill_in 'Module name', with: 'An incredible module'
@@ -17,7 +17,7 @@ end
 RSpec.describe 'Editing a module', type: :feature do
   scenario 'valid inputs' do
     visit new_password_path
-    fill_in 'Password', with: '12345'
+    fill_in 'Password', with: '54321'
     click_on 'Save'
     visit new_module_section_path
     fill_in 'Module name', with: 'An incredible module'
@@ -34,7 +34,7 @@ end
 RSpec.describe 'Creating a page', type: :feature do
   scenario 'valid inputs' do
     visit new_password_path
-    fill_in 'Password', with: '12345'
+    fill_in 'Password', with: '54321'
     click_on 'Save'
     visit new_module_section_path
     fill_in 'Module name', with: 'An incredible module'
@@ -53,7 +53,7 @@ end
 RSpec.describe 'Edit a page', type: :feature do
   scenario 'valid inputs' do
     visit new_password_path
-    fill_in 'Password', with: '12345'
+    fill_in 'Password', with: '54321'
     click_on 'Save'
     visit new_page_path
     fill_in 'Module', with: '22'
@@ -80,7 +80,7 @@ end
 RSpec.describe 'Creating content', type: :feature do
   scenario 'valid inputs' do
     visit new_password_path
-    fill_in 'Password', with: '12345'
+    fill_in 'Password', with: '54321'
     click_on 'Save'
     visit new_content_path
     fill_in 'Title', with: 'test'
@@ -97,7 +97,7 @@ end
 RSpec.describe 'Entering a password', type: :feature do
   scenario 'valid inputs' do
     visit new_password_path
-    fill_in 'Password', with: '12345'
+    fill_in 'Password', with: '54321'
     click_on 'Save'
     expect(page).to have_content('Modules')
   end

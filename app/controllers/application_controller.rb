@@ -4,5 +4,11 @@ class ApplicationController < ActionController::Base
           return redirect_to new_password_path
         end
       end
+    
+    def admin_password_verification
+      unless session[:user_type] == "admin"
+        return redirect_back(fallback_location: root_path, alert: 'Admin permission required to perform action.')
+      end
+    end
 
 end
