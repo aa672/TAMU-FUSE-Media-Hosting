@@ -1,0 +1,11 @@
+development: 
+  cloud_name: "dcdjdg8gl"
+  api_key: "787589888881851"
+  api_secret: "iXtfxZ_qOU2IdyybmEtC0LwynzU"
+  secure: true
+
+production:
+  cloud_name: "dcdjdg8gl"
+  api_key: "787589888881851"
+  api_secret: "iXtfxZ_qOU2IdyybmEtC0LwynzU"
+  secure: true

@@ -24,6 +24,7 @@ class ModuleSectionsController < ApplicationController
   # GET /module_sections/1/edit
   def edit
     @module_section = ModuleSection.find(params[:id])
+    @pages = Page.all
   end
 
   # POST /module_sections or /module_sections.json

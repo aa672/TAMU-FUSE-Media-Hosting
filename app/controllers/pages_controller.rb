@@ -1,36 +1,40 @@
 class PagesController < ApplicationController
   before_action :set_page, only: %i[ show edit update destroy ]
   before_action :require_password_verification
-  before_action :admin_password_verification, except: [:show, :index]
 
   # GET /pages or /pages.json
   def index
     @pages = Page.all
     @module_sections = ModuleSection.all
+    @contents = Content.all
   end
 
   # GET /pages/1 or /pages/1.json
   def show
     @pages = Page.all
     @module_sections = ModuleSection.all
+    @contents = Content.all
   end
 
   # GET /pages/new
   def new
     @page = Page.new
     @module_sections = ModuleSection.all
+    @contents = Content.all
   end
 
   # GET /pages/1/edit
   def edit
     @page = Page.find(params[:id])
     @module_sections = ModuleSection.all
+    @contents = Content.all
   end
 
   # POST /pages or /pages.json
   def create
     @page = Page.new(page_params)
     @module_sections = ModuleSection.all
+    @contents = Content.all
 
     respond_to do |format|
       if @page.save
@@ -74,6 +78,6 @@ class PagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def page_params
-      params.require(:page).permit(:module_name, :content_id, :page_name, :page_description)
+      params.require(:page).permit(:module_id, :page_name, :page_description, :content_ids => [])
     end
 end

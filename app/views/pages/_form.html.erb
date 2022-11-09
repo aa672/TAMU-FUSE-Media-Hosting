@@ -16,9 +16,28 @@
     <%= form.select :module_name, ModuleSection.order(:module_name).map { |module_section| [module_section.module_name, module_section.module_name] }, include_blank: true, id: "name_of_the_module_section_name_select_box" %>
   </div>
 
+  <table>
+    <thead>
+      <tr>
+        <th>Content ID</th>
+        <th>Content Title</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @contents.each do |content| %>
+        <tr>
+          <td><%= content.contentID %></td>
+          <td><%= content.title %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
   <div class="field">
-    <%= form.label :content_id %>
-    <%= form.number_field :content_id %>
+    <%= form.label :content_ids %>
+    <%= collection_select(:page, :content_ids, @contents, :contentID, :title, {include_hidden: false}, {:multiple => true}) %>
   </div>
 
   <div class="field">

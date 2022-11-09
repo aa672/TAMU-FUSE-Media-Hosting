@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'google-api-client', '~> 0.53.0'
 #file uploading
 gem 'carrierwave'
+gem 'cloudinary'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -62,6 +63,7 @@ group :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec' 
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
