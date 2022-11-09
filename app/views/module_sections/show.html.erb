@@ -46,7 +46,7 @@
       <% @pages.each do |page| %>
         <tr>
 
-          <% if page.module_id == @module_section.modID %>
+          <% if page.module_name == @module_section.module_name %>
               <td><%= @module_section.module_name %></td>
               <td><%= page.content_id %></td>
               <td><%= page.page_name %></td>
