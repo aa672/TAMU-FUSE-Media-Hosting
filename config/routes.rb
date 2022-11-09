@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :internship_ops
   resources :internships
   resources :module_sections
-  resources :passwords
   resources :content_tags
   resources :tags
   resources :pages
