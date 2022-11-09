@@ -1,7 +1,5 @@
 class PagesController < ApplicationController
   before_action :set_page, only: %i[ show edit update destroy ]
-  before_action :require_password_verification
-  before_action :admin_password_verification, except: [:show, :index]
 
   # GET /pages or /pages.json
   def index
