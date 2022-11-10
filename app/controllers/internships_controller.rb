@@ -1,7 +1,6 @@
 class InternshipsController < ApplicationController
   before_action :set_internship, only: %i[ show edit update destroy ]
   before_action :require_password_verification
-  before_action :admin_password_verification, except: [:show, :index]
 
   # GET /internships or /internships.json
   def index
