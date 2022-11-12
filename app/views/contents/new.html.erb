@@ -1,23 +1,111 @@
-<div>
-<%= form_for @content, html: { multipart: true } do |f| %>   
-    <%= f.label :title %>   
-    <%= f.text_field :title %>   
-    <br>
-    <br>   
-    <%= f.label :description %>   
-    <%= f.text_field :description %>   
-    <br>
-    <br>   
-    <%= f.label :attachment %>   
-    <%= f.file_field :attachment %>   
-    <br>
-    <br>
-    <%= f.label :content_type %>
-    <%= f.text_field :content_type %>
-    <br>
-    <br>
-    <%= f.submit "Save" %>   
-<% end %>
-<br>
-<%= link_to 'Back', contents_path %>
 </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4><%= link_to 'TAMU-FUSE', module_sections_path %></h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li><%= link_to 'New Module', new_module_section_path %></li>
+        <li><%= link_to 'New Internship Opportunity', new_internship_op_path %></li>
+        <li><%= link_to 'New Content', contents_middle_path %></li>
+        <li><%= link_to 'New Page', new_page_path %></li>
+        <li><%= link_to 'View All Pages', pages_path %></li>
+        
+      </ul><br>
+      
+    </div>
+
+    <div class="col-sm-9">
+      <div class="list-group">
+        <div class="list-group-item">
+            <div class="container">
+                <%= form_for @content, html: { multipart: true } do |f| %>   
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <%= f.label :title, :class => "control-label col-sm-2" %>
+                            <div class="col-sm-4">
+                            <%= f.text_field :title, :class => "form-control"%>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group">
+                            <%= f.label :description, :class => "control-label col-sm-2" %>
+                            <div class="col-sm-4">
+                            <%= f.text_field :description, :class => "form-control"%>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group">
+                            <%= f.label :attachment, :class => "control-label col-sm-2" %>
+                            <div class="col-sm-4">
+                            <%= f.file_field :attachment%>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group">
+                            <%= f.label :content_type, :class => "control-label col-sm-2" %>
+                            <div class="col-sm-4">
+                            <%= f.text_field :content_type, :class => "form-control"%>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group">        
+                            <div class="col-sm-offset-2 col-sm-10">
+                            <%= f.submit "Submit", :class => "btn btn-default" %>
+                            </div>
+                        </div>
+                    </form> 
+                <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <p>Footer Text</p>
+</footer>
+
+</body>
+</html>

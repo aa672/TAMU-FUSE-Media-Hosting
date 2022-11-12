@@ -1,31 +1,78 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-3 sidenav">
+        <h4><%= link_to 'TAMU-FUSE', module_sections_path %></h4>
+        <ul class="nav nav-pills nav-stacked">
+          <li><%= link_to 'New Module', new_module_section_path %></li>
+          <li><%= link_to 'New Internship Opportunity', new_internship_op_path %></li>
+          <li><%= link_to 'New Content', contents_middle_path %></li>
+          <li><%= link_to 'New Page', new_page_path %></li>
+          <li><%= link_to 'View All Pages', pages_path %></li>
+          
+        </ul><br>
+      </div>
 
-<p>
-  <strong>Module:</strong>
-  <%= @page.module_name %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <% @page.content_ids.each do |item| %>
-      <%if @contents.find(item).content_type == 'pdf'%>
-          <embed src=<%=@contents.find(item).attachment_url%> width="500" height="375" type="application/pdf">
-        <%else%> 
-          <iframe width="500" height="375" src=<%=@contents.find(item).attachment_url%> frameborder="0" allowfullscreen></iframe> 
-      <%end%>
-    <% end %>
-</p>
-
-<p>
-  <strong>Page name:</strong>
-  <%= @page.page_name %>
-</p>
-
-<p>
-  <strong>Page description:</strong>
-  <%= @page.page_description %>
-</p>
-
-
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+      <div class="col-sm-9">
+        <div class="list-group">
+          <p id="notice"><%= notice %></p>
+          <div class="list-group-item">
+            <p>
+            <strong>Module:</strong> <%= @page.module_name %> / <strong>Page name:</strong> <%= @page.page_name %> / <strong>Page description:</strong> <%= @page.page_description %> | <%= link_to 'Edit', edit_page_path(@page) %>
+            </p>
+          </div>
+          <% @page.content_ids.each do |item| %>
+            <div class="list-group-item">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title"><%= @contents.find(item).title %></h3>
+                </div>
+                <%if @contents.find(item).content_type == 'pdf'%>
+                    <embed src=<%=@contents.find(item).attachment_url%> width="500" height="375" type="application/pdf">
+                  <%else%> 
+                    <iframe width="500" height="375" src=<%=@contents.find(item).attachment_url%> frameborder="0" allowfullscreen></iframe> 
+                <%end%>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div> 
+  </div>
+</body>
+</html>

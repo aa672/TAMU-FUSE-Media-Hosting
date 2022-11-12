@@ -1,56 +1,122 @@
-<%= form_with(model: page) do |form| %>
-  <% if page.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
 
-      <ul>
-        <% page.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4><%= link_to 'TAMU-FUSE', module_sections_path %></h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li><%= link_to 'New Module', new_module_section_path %></li>
+        <li><%= link_to 'New Internship Opportunity', new_internship_op_path %></li>
+        <li><%= link_to 'New Content', contents_middle_path %></li>
+        <li><%= link_to 'New Page', new_page_path %></li>
+        <li><%= link_to 'View All Pages', pages_path %></li>
       </ul>
+      <br>
+      
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :module_name %>
-    <%= form.select :module_name, ModuleSection.order(:module_name).map { |module_section| [module_section.module_name, module_section.module_name] }, include_blank: true, id: "name_of_the_module_section_name_select_box" %>
+    <div class="col-sm-9">
+      <div class="list-group">
+        <div class="list-group-item">
+          <%= form_with(model: page) do |form| %>
+            <% if page.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+                <ul>
+                  <% page.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="container">
+              <br>
+              <br>
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <%= form.label :module_name, :class => "control-label col-sm-2" %>
+                  <div class="col-sm-4">
+                    <%= form.select :module_name, ModuleSection.order(:module_name).map { |module_section| [module_section.module_name, module_section.module_name] }, include_blank: true, id: "name_of_the_module_section_name_select_box" %>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                  <%= form.label :select_content, :class => "control-label col-sm-2" %>
+                  <div class="col-sm-4">
+                    <%= collection_select(:page, :content_ids, @contents, :contentID, :title, {include_hidden: false}, {:multiple => true}) %>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="form-group">
+                  <%= form.label :page_name, :class => "control-label col-sm-2" %>
+                  <div class="col-sm-4">
+                    <%= form.text_field :page_name, :class => "form-control"%>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                  <%= form.label :page_description, :class => "control-label col-sm-2" %>
+                  <div class="col-sm-4">
+                    <%= form.text_field :page_description, :class => "form-control"%>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">        
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <%= form.submit "Submit", :class => "btn btn-default" %>
+                  </div>
+                </div>
+              </form>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Content ID</th>
-        <th>Content Title</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @contents.each do |content| %>
-        <tr>
-          <td><%= content.contentID %></td>
-          <td><%= content.title %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <div class="field">
-    <%= form.label :content_ids %>
-    <%= collection_select(:page, :content_ids, @contents, :contentID, :title, {include_hidden: false}, {:multiple => true}) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :page_name %>
-    <%= form.text_field :page_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :page_description %>
-    <%= form.text_field :page_description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</body>
+</html>
