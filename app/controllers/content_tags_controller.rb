@@ -1,5 +1,6 @@
 class ContentTagsController < ApplicationController
   before_action :set_content_tag, only: %i[ show edit update destroy ]
+  before_action :check_admin, only: %i[edit create update destroy]
 
   # GET /content_tags or /content_tags.json
   def index
