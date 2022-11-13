@@ -23,10 +23,12 @@ class ModuleSectionsController < ApplicationController
   # GET /module_sections/1/edit
   def edit
     @module_section = ModuleSection.find(params[:id])
+    @pages = Page.all
   end
 
   # POST /module_sections or /module_sections.json
   def create
+    @module_section = ModuleSection.new(module_section_params)
     respond_to do |format|
       if @module_section.save
         format.html { redirect_to module_section_url(@module_section), notice: "Module section was successfully created." }
@@ -41,8 +43,6 @@ class ModuleSectionsController < ApplicationController
   # PATCH/PUT /module_sections/1 or /module_sections/1.json
   def update
     respond_to do |format|
-      @module_section = ModuleSection.find(params[:id])
-      authorize @module_section, policy_class: ModuleSectionPolicy
       if @module_section.update(module_section_params)
         format.html { redirect_to module_section_url(@module_section), notice: "Module section was successfully updated." }
         format.json { render :show, status: :ok, location: @module_section }

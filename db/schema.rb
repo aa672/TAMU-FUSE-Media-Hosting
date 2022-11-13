@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 2022_11_11_013004) do
     t.string "page_description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "content_ids", default: [], array: true
     t.string "module_name"
+    t.integer "content_ids", default: [], array: true
   end
 
   create_table "tags", force: :cascade do |t|
