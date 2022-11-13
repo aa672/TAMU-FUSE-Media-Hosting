@@ -25,7 +25,16 @@ class ApplicationController < ActionController::Base
         return true
       else
         flash[:notice] = "Must be admin"
-        redirect_to(request.referrer || root_path)
+        redirect_to(root_path)
+      end
+    end
+
+    def check_root
+      if current_user.root?
+        return true
+      else
+        flash[:notice] = "Must be root"
+        redirect_to(root_path)
       end
     end
 
