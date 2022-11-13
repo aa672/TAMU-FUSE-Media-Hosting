@@ -2,7 +2,9 @@ ModuleSection.create!([
   {module_name: "Mod name"},
   {module_name: "Mod 2"}
 ])
-Page.create!([
-  {module_id: 1, content_id: 1, page_name: "Page 1", page_description: "Desc 1"},
-  {module_id: 2, content_id: 2, page_name: "Page 2", page_description: "Desc 2"}
+
+User.create!([
+  {username: "member", password: "123456", role: 0},
+  {username: "admin", password: "123456", role: 1},
+  {username: "root", password: "123456", role: 2}
 ])

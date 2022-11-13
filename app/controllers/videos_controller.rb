@@ -1,5 +1,7 @@
 class VideosController < ApplicationController
   before_action :set_video, only: %i[ show edit update destroy ]
+  before_action :check_admin, only: %i[edit create update destroy]
+
 
   # GET /videos or /videos.json
   def index

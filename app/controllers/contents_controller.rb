@@ -2,7 +2,7 @@ require 'google/apis/youtube_v3'
 require 'google/api_client/client_secrets'
 class ContentsController < ApplicationController
   before_action :set_content, only: %i[ show update edit destroy ]
-  before_action :require_password_verification
+  before_action :check_admin, only: %i[edit create update destroy]
 
   # GET /contents or /contents.json
   def index

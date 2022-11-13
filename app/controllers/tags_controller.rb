@@ -1,5 +1,7 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: %i[ show edit update destroy ]
+  before_action :check_admin, only: %i[edit create update destroy]
+
 
   # GET /tags or /tags.json
   def index
