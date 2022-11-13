@@ -1,6 +1,6 @@
 class InternshipsController < ApplicationController
   before_action :set_internship, only: %i[ show edit update destroy ]
-  before_action :require_password_verification
+  before_action :check_admin, only: %i[edit create update destroy]
 
   # GET /internships or /internships.json
   def index

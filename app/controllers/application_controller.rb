@@ -1,14 +1,42 @@
 class ApplicationController < ActionController::Base
-    def require_password_verification
-        unless cookies[:user_password_verified]
-          return redirect_to new_password_path
-        end
-      end
-    
-    def admin_password_verification
-      unless session[:user_type] == "admin"
-        return redirect_back(fallback_location: root_path, alert: 'Admin permission required to perform action.')
+    include Pundit
+    protect_from_forgery with: :exception
+    before_action :authenticate_user!
+
+    before_action :configure_permitted_parameters, if: :devise_controller?
+  
+    private
+  
+   
+
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:role])
+    end
+  
+    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+    def user_not_authorized
+      flash[:alert] = "You are not authorized to perform this action."
+      redirect_to(request.referrer || root_path)
+    end
+
+    def check_admin
+      if current_user.admin? || current_user.root?
+        return true
+      else
+        flash[:notice] = "Must be admin"
+        redirect_to(root_path)
       end
     end
 
-end
+    def check_root
+      if current_user.root?
+        return true
+      else
+        flash[:notice] = "Must be root"
+        redirect_to(root_path)
+      end
+    end
+
+
+  end
