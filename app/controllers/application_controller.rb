@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
       if current_user.admin? || current_user.root?
         return true
       else
-        flash[:notice] = "Must be admin"
+        flash[:alert] = "Must be admin to perform that action."
         redirect_to(root_path)
       end
     end
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
       if current_user.root?
         return true
       else
-        flash[:notice] = "Must be root"
+        flash[:alert] = "Must be root to perform that action."
         redirect_to(root_path)
       end
     end

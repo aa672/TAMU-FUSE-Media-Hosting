@@ -68,7 +68,7 @@
         <li><%= link_to 'New Page', new_page_path %></li>
         <%end %>
         <% if current_user.root? %>
-        <%= link_to 'Users', users_index_path %>
+        <li><%= link_to 'Manage Users', users_index_path %></li>
         <%end %>
         
       </ul>
@@ -83,16 +83,16 @@
             <div class="list-group-item">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h3 class="panel-title"><%= module_section.module_name %></h3>
+                  <h3 class="panel-title"><%=link_to module_section.module_name, module_section %></h3>
                 </div>
                 <div class="panel-body">
                   <tr> 
                     <%if current_user.admin? || current_user.root? %>
                       <td><%= link_to 'Edit', edit_module_section_path(module_section) %></td>
                       <td><%= link_to 'Destroy', module_section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                      <td><%= link_to 'Show', module_section %></td>
+                      <td><%= link_to 'View', module_section %></td>
                     <%else%> 
-                      <td><%= link_to 'Show', module_section %></td>
+                      <td><%= link_to 'View', module_section %></td>
                   <%end%>
                   </tr>
                 </div>
