@@ -50,9 +50,11 @@ RSpec.describe 'Creating a page', type: :feature do
     select('test', :from => 'Content')
     fill_in 'Page name', with: 'TestName'
     fill_in 'Page description', with: 'TestDescription'
+    fill_in 'Tag', with: 'TestTag'
     click_on 'Create Page'
     visit pages_path
     expect(page).to have_content('')
+    expect(page).to have_content('Testtag')
   end
 end
 
@@ -81,6 +83,7 @@ RSpec.describe 'Edit a page', type: :feature do
     fill_in 'Page name', with: 'TestName2'
     fill_in 'Page description', with: ''
     fill_in 'Page description', with: 'NewTestDescription'
+    fill_in 'Tag', with: 'test tag'
     click_on 'Update Page'
     visit pages_path
     expect(page).to have_content('TestName2')

@@ -132,7 +132,17 @@
       </div>
     </div>
   </div>
-</div>
+
+  <div>
+    <%= form.label :tag, style: "display: block" %>
+    <p> Add new tags (separated by space): </p> <nobr><%= form.text_field :tags, value: page.tags.map(&:name).join(" ") %>
+    <br><br>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
 
 </body>
 </html>

@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 2022_11_11_013004) do
   create_table "content_tags", force: :cascade do |t|
     t.integer "contentTag_id"
     t.integer "tag_id"
-    t.integer "content_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "page_id"
   end
 
   create_table "contents", primary_key: "contentID", force: :cascade do |t|
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 2022_11_11_013004) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
     t.string "username", default: "", null: false
     t.integer "role"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

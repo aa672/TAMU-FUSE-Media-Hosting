@@ -4,7 +4,7 @@ require 'rails_helper'
 # Testing acceptance criteria for the creation of pages
 RSpec.describe Page, type: :model do
   subject do
-    described_class.new(module_id: '22', content_ids:[1], page_name: 'name', page_description: 'description here')
+    described_class.new(module_id: '22', content_id: '22', page_name: 'name', page_description: 'description here')
   end
 
   it 'is valid with all valid attributes' do
@@ -16,8 +16,8 @@ RSpec.describe Page, type: :model do
     expect(subject).not_to be_valid
   end
 
-  it 'is not valid without a content id(s)' do
-    subject.content_ids = nil
+  it 'is not valid without a content id' do
+    subject.content_id = nil
     expect(subject).not_to be_valid
   end
 
@@ -51,7 +51,7 @@ end
 # Testing acceptance criteria for the creation of content
 RSpec.describe Content, type: :model do
   subject do
-    described_class.new(title: 'test', description: 'This is a test', content_type: 'jpg')
+    described_class.new(title: 'test', description: 'This is a test', content_id: '22', content_type: 'jpg', content_storage_link: 'testlink', )
   end
 
   it 'is valid with all valid attributes' do
@@ -68,8 +68,46 @@ RSpec.describe Content, type: :model do
     expect(subject).not_to be_valid
   end
 
+  it 'is not valid without a content id' do
+    subject.content_id = nil
+    expect(subject).not_to be_valid
+  end
+
   it 'is not valid without a content type' do
     subject.content_type = nil
     expect(subject).not_to be_valid
   end
+
+  it 'is not valid without a content storage link' do
+    subject.content_storage_link = nil
+    expect(subject).not_to be_valid
+  end
 end
+
+# Testing acceptance criteria for the creation of tags
+RSpec.describe Tag, type: :model do
+  subject do
+    described_class.new(tag_name: 'test')
+  end
+
+  it 'is valid with all valid attributes' do
+    expect(subject).to be_valid
+  end
+
+  it 'is not valid without a tag name' do
+    subject.tag_name = nil
+    expect(subject).not_to be_valid
+  end
+end
+
+# # Testing acceptance criteria for the creation of content_tags
+# RSpec.describe ContentTag, type: :model do
+#   subject do
+#     described_class.new(page_id: '1', tag_id: 'testTag')
+#   end
+
+#   it 'is valid with all valid attributes' do
+#     expect(subject).to be_valid
+#   end
+
+# end
