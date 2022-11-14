@@ -44,9 +44,11 @@ RSpec.describe 'Creating a page', type: :feature do
     fill_in 'Content', with: '22'
     fill_in 'Page name', with: 'TestName'
     fill_in 'Page description', with: 'TestDescription'
+    fill_in 'Tag', with: 'TestTag'
     click_on 'Create Page'
     visit pages_path
     expect(page).to have_content('22')
+    expect(page).to have_content('Testtag')
   end
 end
 
@@ -64,16 +66,20 @@ RSpec.describe 'Edit a page', type: :feature do
     visit pages_path
     visit edit_page_path(page)
     fill_in 'Module', with: ''
-    fill_in 'Module', with: '33'
+    fill_in 'Module', with: '1'
     fill_in 'Content', with: ''
-    fill_in 'Content', with: '33'
+    fill_in 'Content', with: '1'
     fill_in 'Page name', with: ''
     fill_in 'Page name', with: 'TestName2'
     fill_in 'Page description', with: ''
     fill_in 'Page description', with: 'NewTestDescription'
+    fill_in 'Tag', with: 'test tag'
     click_on 'Update Page'
     visit pages_path
     expect(page).to have_content('33')
+    expect(page).to have_content('NewTestDescription')
+    expect(page).to have_content('Test')
+    expect(page).to have_content('Tag')
   end
 end
 

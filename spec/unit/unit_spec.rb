@@ -83,3 +83,31 @@ RSpec.describe Content, type: :model do
     expect(subject).not_to be_valid
   end
 end
+
+# Testing acceptance criteria for the creation of tags
+RSpec.describe Tag, type: :model do
+  subject do
+    described_class.new(tag_name: 'test')
+  end
+
+  it 'is valid with all valid attributes' do
+    expect(subject).to be_valid
+  end
+
+  it 'is not valid without a tag name' do
+    subject.tag_name = nil
+    expect(subject).not_to be_valid
+  end
+end
+
+# # Testing acceptance criteria for the creation of content_tags
+# RSpec.describe ContentTag, type: :model do
+#   subject do
+#     described_class.new(page_id: '1', tag_id: 'testTag')
+#   end
+
+#   it 'is valid with all valid attributes' do
+#     expect(subject).to be_valid
+#   end
+
+# end
