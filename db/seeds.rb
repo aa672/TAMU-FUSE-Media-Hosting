@@ -1,6 +1,6 @@
 ModuleSection.create!([
-  {module_name: "Mod name"},
-  {module_name: "Mod 2"}
+  {module_name: "Example Module 1"},
+  {module_name: "Example Module 2"}
 ])
 
 User.create!([
