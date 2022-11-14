@@ -120,6 +120,13 @@
                 </div>
                 <br>
                 <br>
+                <div class="form-group">
+                <%= form.label :tag, style: "display: block" %>
+                <p> Add new tags (separated by space): </p> 
+                <%= form.text_field :tags, value: page.tags.map(&:name).join(" ") %>
+                </div>
+                <br>
+                <br>
                 <div class="form-group">        
                   <div class="col-sm-offset-2 col-sm-10">
                     <%= form.submit "Submit", :class => "btn btn-default" %>
@@ -133,16 +140,6 @@
     </div>
   </div>
 
-  <div>
-    <%= form.label :tag, style: "display: block" %>
-    <p> Add new tags (separated by space): </p> <nobr><%= form.text_field :tags, value: page.tags.map(&:name).join(" ") %>
-    <br><br>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
 
 </body>
 </html>
