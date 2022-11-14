@@ -128,8 +128,16 @@
                         <div class="panel-body">
                           <p><strong>Description: </strong> <%= page.page_description %></p>
                           <p><strong>Tags: </strong> </p>
+                          <% page.tags.each do |tag| %>
+                            <%= link_to tag, style: "text-decoration:none" do %>
+                              <span class="tag"><%= tag.tag_name.capitalize %></span>
+                            <% end %>
+                          <% end %>
+                        </p>
+            
                           <tr> 
-                            <td><%= link_to 'Show', page %></td>
+                          
+                          <td><%= link_to 'Show', page %></td>
                           </tr>
                         </div>
                       </div>

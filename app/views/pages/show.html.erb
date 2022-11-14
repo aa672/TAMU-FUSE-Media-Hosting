@@ -69,9 +69,23 @@
             <p id="notice"><%= notice %></p>
             <div class="list-group-item">
               <p>
-              <strong>Module:</strong> <%= @page.module_name %> / <strong>Page name:</strong> <%= @page.page_name %> / <strong>Page description:</strong> <%= @page.page_description %> | <%= link_to 'Edit', edit_page_path(@page) %>
+              <strong>Module:</strong> <%= @page.module_name %> / <strong>Page:</strong> <%= @page.page_name %> | <%= link_to 'Edit', edit_page_path(@page) %>
               </p>
             </div>
+            <div class="list-group-item">
+                <p>
+                <strong>Page Description: </strong><%= @page.page_description %>
+                </p>
+                <p>
+                <strong>Tags: </strong> 
+                <% @page.tags.each do |tag| %>
+                  <%= link_to tag, style: "text-decoration:none" do %>
+                    <span class="tag"><%= tag.tag_name.capitalize %></span>
+                  <% end %>
+                <% end %>
+              </p>
+              
+              </div>
             <% @page.content_ids.each do |item| %>
               <div class="list-group-item">
                 <div class="panel panel-default">
@@ -135,7 +149,7 @@
                     <span class="tag"><%= tag.tag_name.capitalize %></span>
                   <% end %>
                 <% end %>
-                </p>
+              </p>
               
               </div>
               <% @page.content_ids.each do |item| %>
