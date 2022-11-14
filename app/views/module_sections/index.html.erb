@@ -38,7 +38,28 @@
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
-      <h4><%= link_to 'TAMU-FUSE', module_sections_path %></h4>
+      <h4><%= link_to 'TAMU-FUSE', module_sections_path %></h4> 
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.username %></strong>.|
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+          <% end %>
+        </div>
+        <div class = "panel-body">
+          <%= link_to ' View All Modules', module_sections_path %> 
+          <br>
+          <%= link_to ' View All Pages', pages_path %> 
+          <br>
+          <% if current_user.admin? || current_user.root? %>
+              <%= link_to ' View All Content', contents_path %> 
+              <br>
+              <%= link_to ' View All Internships', internship_ops_path %>
+            <%else%>
+              <%= link_to ' Internships Opportunities ', internship_ops_path %>
+          <%end %>
+        </div>
+      </div>
       <ul class="nav nav-pills nav-stacked">
       <% if current_user.admin? || current_user.root? %>
         <li><%= link_to 'New Module', new_module_section_path %></li>
@@ -46,41 +67,43 @@
         <li><%= link_to 'New Content', contents_middle_path %></li>
         <li><%= link_to 'New Page', new_page_path %></li>
         <%end %>
-        <li><%= link_to 'View All Pages', pages_path %></li>
         <% if current_user.root? %>
         <%= link_to 'Users', users_index_path %>
         <%end %>
-        <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.username %></strong>.|
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-        <% end %>
-      </ul><br>
-      
+        
+      </ul>
+      <br>
     </div>
 
     <div class="col-sm-9">
       <p id="notice"><%= notice %></p>
-      <div class="list-group">
-        <% @module_sections.each do |module_section| %>
-          <div class="list-group-item">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title"><%= module_section.module_name %></h3>
-              </div>
-              <div class="panel-body">
-                <tr>
-                  <td><%= link_to 'Show', module_section %></td>
-                  <% if current_user.admin? || current_user.root? %>
-                  <td><%= link_to 'Edit', edit_module_section_path(module_section) %></td>
-                  <td><%= link_to 'Destroy', module_section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                  <%end %>
-                </tr>
+      <div class="container">
+        <div class="list-group">
+          <% @module_sections.each do |module_section| %>
+            <div class="list-group-item">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title"><%= module_section.module_name %></h3>
+                </div>
+                <div class="panel-body">
+                  <tr> 
+                    <%if current_user.admin? || current_user.root? %>
+                      <td><%= link_to 'Edit', edit_module_section_path(module_section) %></td>
+                      <td><%= link_to 'Destroy', module_section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      <td><%= link_to 'Show', module_section %></td>
+                    <%else%> 
+                      <td><%= link_to 'Show', module_section %></td>
+                  <%end%>
+                  </tr>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
+      
     </div>
+  
   </div>
 </div>
 

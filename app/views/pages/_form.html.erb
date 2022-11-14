@@ -39,12 +39,28 @@
   <div class="row content">
     <div class="col-sm-3 sidenav">
       <h4><%= link_to 'TAMU-FUSE', module_sections_path %></h4>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.username %></strong>.|
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+          <% end %>
+        </div>
+        <div class = "panel-body">
+          <%= link_to ' View All Modules', module_sections_path %> 
+          <br>
+          <%= link_to ' View All Pages', pages_path %> 
+          <br>
+          <%= link_to ' View All Content', contents_path %> 
+          <br>
+          <%= link_to ' View All Internships', internship_ops_path %> 
+        </div>
+      </div>
       <ul class="nav nav-pills nav-stacked">
         <li><%= link_to 'New Module', new_module_section_path %></li>
         <li><%= link_to 'New Internship Opportunity', new_internship_op_path %></li>
         <li><%= link_to 'New Content', contents_middle_path %></li>
         <li><%= link_to 'New Page', new_page_path %></li>
-        <li><%= link_to 'View All Pages', pages_path %></li>
       </ul>
       <br>
       
