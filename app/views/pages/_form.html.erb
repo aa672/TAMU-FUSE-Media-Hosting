@@ -134,7 +134,7 @@
                 <div class="form-group">
                   <%= form.label :tag, style: "display: block", :class => "control-label col-sm-2" %> 
                   <div class="col-sm-4">
-                    <%= form.text_field :tags, value: page.tags.map(&:name).join(" "), :class => "form-control"%>
+                    <%= form.text_field :tags, value: page.tags.map(&:tag_name).join(" "), :class => "form-control"%>
                   </div>
                 </div>
                 <br>
