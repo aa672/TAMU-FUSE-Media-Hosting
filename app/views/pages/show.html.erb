@@ -51,16 +51,16 @@
                 <br>
                 <%= link_to ' View All Pages', pages_path %> 
                 <br>
-                <% if current_user.admin? %>
+                <% if current_user.admin? || current_user.root? %>
                     <%= link_to ' View All Content', contents_path %> 
                     <br>
                     <%= link_to ' View All Internships', internship_ops_path %>
                   <%else%>
                     <%= link_to ' Internships Opportunities ', internship_ops_path %>
-                  <% if current_user.root? %>
-                    <br>
-                    <%= link_to 'Manage Users', users_index_path %>
-                  <%end %>
+                <%end %>
+                <% if current_user.root? %>
+                  <br>
+                  <%= link_to 'Manage Users', users_index_path %>
                 <%end %>
               </div>
             </div>
