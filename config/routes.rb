@@ -20,5 +20,7 @@ Rails.application.routes.draw do
   get '/contents', to: 'contents#index'
   patch 'module_sections/:id', to: 'module_sections#update'
   get 'password_management', to: 'password_management#index'
+  get 'password_management/:id', to: 'password_management#edit'
+  patch 'password_management/:id', to: 'password_management#update'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

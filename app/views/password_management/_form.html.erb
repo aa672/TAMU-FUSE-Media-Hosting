@@ -1,0 +1,26 @@
+<%= form_with(@user) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :password, "New password" %><br />
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+    <% end %>
+    <%= form.password_field :password, autofocus: true, autocomplete: "new-password" %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

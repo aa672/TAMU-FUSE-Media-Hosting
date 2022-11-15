@@ -1,6 +1,23 @@
 <h1> Password Management </h1>
 <br>
-<h2> Passwords </h2>
-<h3> Members </h3>
-<h3> Admins </h3>
-<h3> Root </h3>
+<table>
+  <thead>
+    <tr>
+      <th>Roles | </th>
+      <th>Password | </th>
+      <th>Actions</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.try(:each) do |user| %>
+      <tr>
+        <td><%= user.role %></td> 
+        <td><%= user.encrypted_password %></td>
+        <td><%= link_to 'Edit', password_management_path(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
