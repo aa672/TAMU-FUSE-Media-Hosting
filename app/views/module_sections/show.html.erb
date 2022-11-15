@@ -51,9 +51,17 @@
                 <br>
                 <%= link_to ' View All Pages', pages_path %> 
                 <br>
-                <%= link_to ' View All Content', contents_path %> 
-                <br>
-                <%= link_to ' View All Internships', internship_ops_path %> 
+                <% if current_user.admin? %>
+                    <%= link_to ' View All Content', contents_path %> 
+                    <br>
+                    <%= link_to ' View All Internships', internship_ops_path %>
+                  <%else%>
+                    <%= link_to ' Internships Opportunities ', internship_ops_path %>
+                  <% if current_user.root? %>
+                    <br>
+                    <%= link_to 'Manage Users', users_index_path %>
+                  <%end %>
+                <%end %>
               </div>
             </div>
             <ul class="nav nav-pills nav-stacked">
