@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 2022_11_11_013004) do
   create_table "content_tags", force: :cascade do |t|
     t.integer "contentTag_id"
     t.integer "tag_id"
+    t.integer "page_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "page_id"
   end
 
   create_table "contents", primary_key: "contentID", force: :cascade do |t|
@@ -83,18 +83,11 @@ ActiveRecord::Schema.define(version: 2022_11_11_013004) do
     t.string "module_name"
   end
 
-  create_table "passwords", force: :cascade do |t|
-    t.string "password"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "tags", force: :cascade do |t|
     t.integer "tag_id"
     t.string "tag_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|
