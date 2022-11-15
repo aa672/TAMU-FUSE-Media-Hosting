@@ -74,4 +74,4 @@ TBD
 ## Support ##
 
 Admins looking for support should first look at the application help page.
-Users looking for help seek out assistance from the admins.
+Users looking for help should seek assistance from the admins.
