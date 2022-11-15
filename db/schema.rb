@@ -18,9 +18,15 @@ ActiveRecord::Schema.define(version: 2022_11_11_013004) do
   create_table "content_tags", force: :cascade do |t|
     t.integer "contentTag_id"
     t.integer "tag_id"
+<<<<<<< HEAD
     t.integer "page_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+=======
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "page_id"
+>>>>>>> 402a5f707a068df97d10b61f4c7e34875daeafd8
   end
 
   create_table "contents", primary_key: "contentID", force: :cascade do |t|
@@ -83,11 +89,24 @@ ActiveRecord::Schema.define(version: 2022_11_11_013004) do
     t.string "module_name"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "passwords", force: :cascade do |t|
+    t.string "password"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+>>>>>>> 402a5f707a068df97d10b61f4c7e34875daeafd8
   create_table "tags", force: :cascade do |t|
     t.integer "tag_id"
     t.string "tag_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+<<<<<<< HEAD
+=======
+    t.string "name"
+>>>>>>> 402a5f707a068df97d10b61f4c7e34875daeafd8
   end
 
   create_table "users", force: :cascade do |t|
