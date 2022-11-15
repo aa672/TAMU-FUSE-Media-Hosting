@@ -60,7 +60,7 @@ The application can be seen using a browser and navigating to http://localhost:3
 
 ## Environmental Variables/Files ##
 
-** Add instructions/description if your application requires it.
+** Add instructions/descriptions if your application requires it.
 
 ## Deployment ##
 
