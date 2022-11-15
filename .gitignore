@@ -55,6 +55,14 @@ yarn-debug.log*
 yarn-debug.log*
 .yarn-integrity
 
+/coverage/simplecov
+/coverage/simplecov-html
+/coverage/doclie
+/coverage/.last_run.json
+/coverage/.resultset.json*
+/coverage/assets
+/coverage/index.html
+
 /config/master.key
 
 /public/packs
@@ -85,3 +93,10 @@ yarn-debug.log*
 /coverage/.resultset.json*
 /coverage/assets
 /coverage/index.html
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

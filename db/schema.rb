@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_17_175632) do
+ActiveRecord::Schema.define(version: 2022_11_11_013004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,13 +18,12 @@ ActiveRecord::Schema.define(version: 2022_10_17_175632) do
   create_table "content_tags", force: :cascade do |t|
     t.integer "contentTag_id"
     t.integer "tag_id"
-    t.integer "content_id"
+    t.integer "page_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "contents", force: :cascade do |t|
-    t.integer "content_id"
+  create_table "contents", primary_key: "contentID", force: :cascade do |t|
     t.string "content_type"
     t.string "content_storage_link"
     t.datetime "created_at", precision: 6, null: false
@@ -34,6 +33,7 @@ ActiveRecord::Schema.define(version: 2022_10_17_175632) do
     t.string "attachment"
     t.string "session_token"
     t.json "credentials"
+    t.integer "page_id"
   end
 
   create_table "internship_ops", primary_key: "internshipID", force: :cascade do |t|
@@ -79,14 +79,8 @@ ActiveRecord::Schema.define(version: 2022_10_17_175632) do
     t.string "page_description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "passwords", force: :cascade do |t|
-    t.integer "password_id"
-    t.string "password_name"
-    t.string "password"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "content_ids", default: [], array: true
+    t.string "module_name"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -94,6 +88,19 @@ ActiveRecord::Schema.define(version: 2022_10_17_175632) do
     t.string "tag_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "username", default: "", null: false
+    t.integer "role"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   create_table "videos", force: :cascade do |t|

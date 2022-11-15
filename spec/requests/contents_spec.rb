@@ -34,8 +34,8 @@ RSpec.describe "/contents", type: :request do
 
   describe "GET /new" do
     it "renders a successful response" do
-      get new_content_url
-      expect(response).to be_successful
+      get "/contents/new"
+      expect(response).to render_template(:new)
     end
   end
 

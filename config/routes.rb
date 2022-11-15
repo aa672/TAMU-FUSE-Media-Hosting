@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users, :path_prefix => 'my'
+  resources :users
   resources :internship_ops
   resources :internships
   resources :module_sections
-  resources :passwords
   resources :content_tags
   resources :tags
   resources :pages
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   get 'contents/:id', to: 'contents#edit'
   patch 'contents/:id', to: 'contents#update'
   get '/contents', to: 'contents#index'
-  
-  
+  patch 'module_sections/:id', to: 'module_sections#update'
+  get 'users/index', to: 'users#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

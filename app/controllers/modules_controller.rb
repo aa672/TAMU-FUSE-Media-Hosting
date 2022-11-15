@@ -1,5 +1,7 @@
 class ModulesController < ApplicationController
   before_action :set_module, only: %i[ show edit update destroy ]
+  before_action :check_admin, only: %i[edit create update destroy]
+
 
   # GET /modules or /modules.json
   def index

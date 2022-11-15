@@ -1,43 +1,112 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
 
-<h1>Modules</h1>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4><%= link_to 'TAMU-FUSE', module_sections_path %></h4> 
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.username %></strong>.|
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+          <% end %>
+        </div>
+        <div class = "panel-body">
+          <%= link_to ' View All Modules', module_sections_path %> 
+          <br>
+          <%= link_to ' View All Pages', pages_path %> 
+          <br>
+          <% if current_user.admin? || current_user.root? %>
+              <%= link_to ' View All Content', contents_path %> 
+              <br>
+              <%= link_to ' View All Internships', internship_ops_path %>
+            <%else%>
+              <%= link_to ' Internships Opportunities ', internship_ops_path %>
+          <%end %>
+          <% if current_user.root? %>
+            <br>
+            <%= link_to 'Manage Users', users_index_path %>
+          <%end %>
+        </div>
+      </div>
+      <ul class="nav nav-pills nav-stacked">
+      <% if current_user.admin? || current_user.root? %>
+        <li><%= link_to 'New Module', new_module_section_path %></li>
+        <li><%= link_to 'New Internship Opportunity', new_internship_op_path %></li>
+        <li><%= link_to 'New Content', contents_middle_path %></li>
+        <li><%= link_to 'New Page', new_page_path %></li>
+      <%end %>
+        
+        
+      </ul>
+      <br>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Module</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="col-sm-9">
+      <div class="container">
+        <div class="list-group">
+          <% @module_sections.each do |module_section| %>
+            <div class="list-group-item">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title"><%=link_to module_section.module_name, module_section %></h3>
+                </div>
+                <div class="panel-body">
+                  <tr> 
+                    <%if current_user.admin? || current_user.root? %>
+                      <td><%= link_to 'Edit', edit_module_section_path(module_section) %></td>
+                      <td><%= link_to 'Destroy', module_section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      <td><%= link_to 'View', module_section %></td>
+                    <%else%> 
+                      <td><%= link_to 'View', module_section %></td>
+                  <%end%>
+                  </tr>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      
+    </div>
+  
+  </div>
+</div>
 
-  <tbody>
-    <% @module_sections.each do |module_section| %>
-      <tr>
-        <td><%= module_section.module_name %></td>
-        <td><%= link_to 'Show', module_section %></td>
-        <td><%= link_to 'Edit', edit_module_section_path(module_section) %></td>
-        <td><%= link_to 'Destroy', module_section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Module', new_module_section_path %>
-
-<br>
-
-<%= link_to 'New Internship', new_internship_op_path %>
-
-<br>
-
-<%= link_to 'New Page', new_page_path %>
-
-<br>
-
-<%= link_to 'New Content', contents_path %>
-
-<br>
-
-<%= link_to 'View All Pages', pages_path %>
+</body>
+</html>

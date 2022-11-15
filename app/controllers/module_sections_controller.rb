@@ -1,5 +1,6 @@
 class ModuleSectionsController < ApplicationController
   before_action :set_module_section, only: %i[ show edit update destroy ]
+  before_action :check_admin, only: %i[edit create update destroy]
 
   # GET /module_sections or /module_sections.json
   def index
@@ -22,12 +23,12 @@ class ModuleSectionsController < ApplicationController
   # GET /module_sections/1/edit
   def edit
     @module_section = ModuleSection.find(params[:id])
+    @pages = Page.all
   end
 
   # POST /module_sections or /module_sections.json
   def create
     @module_section = ModuleSection.new(module_section_params)
-
     respond_to do |format|
       if @module_section.save
         format.html { redirect_to module_section_url(@module_section), notice: "Module section was successfully created." }

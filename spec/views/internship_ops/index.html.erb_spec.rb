@@ -26,9 +26,9 @@ RSpec.describe "internship_ops/index", type: :view do
     render
     assert_select "tr>td", text: "Internship Name".to_s, count: 2
     assert_select "tr>td", text: "Company Name".to_s, count: 2
-    assert_select "tr>td", text: "Contact Name".to_s, count: 2
-    assert_select "tr>td", text: "Contact Email".to_s, count: 2
-    assert_select "tr>td", text: "Company Link".to_s, count: 2
-    assert_select "tr>td", text: "MyText".to_s, count: 2
+    assert_select "tr>td", text: "Contact name".to_s, count: 0
+    assert_select "tr>td", text: "Contact email".to_s, count: 0
+    assert_select "tr>td", text: "Company link".to_s, count: 0
+    assert_select "tr>td", text: "MyText".to_s, count: 0
   end
 end
