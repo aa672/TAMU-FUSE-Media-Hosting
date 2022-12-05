@@ -102,5 +102,5 @@ CD is mentioned in the deployment to Herko section of this read.me. Every time a
 
 ## Support ##
 
-Admins looking for support should first look at the application help page.
+Admins looking for support should first look at the application help page or the Support Video located in the Main branch.
 Users looking for help should seek assistance from the admins.
