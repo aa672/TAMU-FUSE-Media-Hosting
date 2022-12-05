@@ -102,6 +102,6 @@ CD is mentioned in the deployment to Herko section of this read.me. Every time a
 
 ## Support ##
 
-Admins looking for support should first look at the application help page or follow this Support Video: https://tamucs.sharepoint.com/:u:/t/Team-FA22-CSCE431-SoftwareEngineering-TAMUFUSE-MediaHosting/ERPYZp5qoJJNsO5sjXYWrt4BSr_LFtFcF-Foo-ApxN5Z5g?e=HFUteP
+Admins looking for support should first look at the application help page or follow this Support Video: https://tamucs.sharepoint.com/:v:/t/Team-FA22-CSCE431-SoftwareEngineering-TAMUFUSE-MediaHosting/EU-3Wrz_76hGofcJjOSCduUBr8H9KO4X8HFFyMtOCpkqYQ?e=d7SOAg
 
 Users looking for help should seek assistance from the admins.
