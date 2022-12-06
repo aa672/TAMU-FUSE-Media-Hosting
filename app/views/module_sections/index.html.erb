@@ -84,5 +84,28 @@
   <p>Footer Text</p>
 </footer>
 
-</body>
-</html>
+<br>
+
+<%= link_to 'New Internship Opportunity', new_internship_op_path %>
+
+<br>
+
+<%= link_to 'New Page', new_page_path %>
+
+<br>
+
+<%= link_to 'New Content', contents_path %>
+
+<br>
+
+<%= link_to 'Users', users_index_path %>
+
+<br>
+<%end %>
+<%= link_to 'View All Pages', pages_path %>
+
+<br>
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.username %></strong>.|
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% end %>
